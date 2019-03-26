@@ -1,4 +1,4 @@
-SUBDIRS=hello fizzbuzz stdin
+SUBDIRS=hello fizzbuzz stdin miniintr
 CLEAN_SUBDIRS=$(patsubst %,clean-%,$(SUBDIRS))
 
 all: $(SUBDIRS)
