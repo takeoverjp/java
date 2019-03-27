@@ -6,7 +6,7 @@ public class MiniInterpreter {
     }
 
     private int eval(String expression) {
-        return 0;
+        return expression.charAt(0) - '0';
     }
 
     public static void main(String[] args) {
