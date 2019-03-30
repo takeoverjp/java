@@ -6,7 +6,12 @@ public class MiniInterpreter {
     }
 
     private int eval(String expression) {
-        return expression.charAt(0) - '0';
+        int ret = 0;
+        int len = expression.length();
+        for (int i = 0; i < len; i++) {
+            ret = ret * 10 + expression.charAt(i) - '0';
+        }
+        return ret;
     }
 
     public static void main(String[] args) {
