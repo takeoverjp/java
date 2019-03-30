@@ -16,4 +16,5 @@ cd ..
 test_miniintr "0" "0"
 test_miniintr "1" "1"
 test_miniintr "9" "9"
+test_miniintr "10" "10"
 echo ""
