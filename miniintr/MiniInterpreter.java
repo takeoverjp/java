@@ -7,13 +7,18 @@ public class MiniInterpreter {
 
     private int eval(String expression) {
         int ret = 0;
-        int len = expression.length();
         if (expression.charAt(0) == '+') {
-            int lhs = this.eval(expression.substring(2,3));
-            int rhs = this.eval(expression.substring(4));
+            int lhs_idx = expression.indexOf(' ') + 1;
+            String lhs_str = expression.substring(lhs_idx);
+            int lhs = this.eval(lhs_str);
+            int rhs_idx = expression.indexOf(' ', lhs_idx) + 1;
+            String rhs_str = expression.substring(rhs_idx);
+            int rhs = this.eval(rhs_str);
             return lhs + rhs;
         }
 
+        int last = expression.indexOf(' ');
+        int len = (last < 0) ? expression.length() : last;
         for (int i = 0; i < len; i++) {
             ret = ret * 10 + expression.charAt(i) - '0';
         }
