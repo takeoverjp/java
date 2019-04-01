@@ -15,8 +15,10 @@ public class MiniInterpreter {
             int op = first;
             int lhs_idx = expression.indexOf(' ') + 1;
             String lhs_str = expression.substring(lhs_idx);
+            assert lhs_idx >= 0 : "lhs_idx: " + lhs_idx;
             int lhs = this.eval(lhs_str);
             int rhs_idx = expression.indexOf(' ', lhs_idx) + 1;
+            assert rhs_idx >= 0 : "rhs_idx: " + rhs_idx;
             String rhs_str = expression.substring(rhs_idx);
             int rhs = this.eval(rhs_str);
             switch (op)
@@ -29,6 +31,8 @@ public class MiniInterpreter {
                     return lhs * rhs;
                 case '/':
                     return lhs / rhs;
+                default:
+                    assert false : "op: " + op;
                 }
         }
 

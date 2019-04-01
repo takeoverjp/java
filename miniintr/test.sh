@@ -2,7 +2,7 @@
 
 test_miniintr() {
     EXPECT=$1
-    RESULT=`java miniintr.MiniInterpreter "$2"`
+    RESULT=`java -ea miniintr.MiniInterpreter "$2"`
     if [ "$EXPECT" != "$RESULT" ]; then
         echo "Error in \"$2\", (Exp: ${EXPECT}, Act: ${RESULT})"
     else
