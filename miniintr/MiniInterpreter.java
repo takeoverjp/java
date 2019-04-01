@@ -8,6 +8,12 @@ public class MiniInterpreter {
     private int eval(String expression) {
         int ret = 0;
         int len = expression.length();
+        if (expression.charAt(0) == '+') {
+            int lhs = this.eval(expression.substring(2,3));
+            int rhs = this.eval(expression.substring(4));
+            return lhs + rhs;
+        }
+
         for (int i = 0; i < len; i++) {
             ret = ret * 10 + expression.charAt(i) - '0';
         }
