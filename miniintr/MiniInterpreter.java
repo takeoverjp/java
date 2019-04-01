@@ -7,14 +7,29 @@ public class MiniInterpreter {
 
     private int eval(String expression) {
         int ret = 0;
-        if (expression.charAt(0) == '+') {
+        int first = expression.charAt(0);
+        if ((first == '+')
+            || (first == '-')
+            || (first == '*')
+            || (first == '/')) {
+            int op = first;
             int lhs_idx = expression.indexOf(' ') + 1;
             String lhs_str = expression.substring(lhs_idx);
             int lhs = this.eval(lhs_str);
             int rhs_idx = expression.indexOf(' ', lhs_idx) + 1;
             String rhs_str = expression.substring(rhs_idx);
             int rhs = this.eval(rhs_str);
-            return lhs + rhs;
+            switch (op)
+                {
+                case '+':
+                    return lhs + rhs;
+                case '-':
+                    return lhs - rhs;
+                case '*':
+                    return lhs * rhs;
+                case '/':
+                    return lhs / rhs;
+                }
         }
 
         int last = expression.indexOf(' ');
